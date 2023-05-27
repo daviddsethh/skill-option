@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<title>JavaScript Exercises</title>
+<style type="text/css">
+body {
+	font-family:Verdana, Geneva, sans-serif; 
+	font-size:100%;
+	margin:0;
+	padding:0;
+}
+p {
+	color:#900;
+	margin-left:20px;
+}
+div#results {
+	background-color:#FF6;
+	height:auto;
+	width:500px;
+	border:1px solid red;
+	padding:10px;
+	margin-left:20px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	border-radius:7px;
+
+}
+div#more {
+	background-color: #39F;
+	height:auto;
+	width:500px;
+	border:1px solid #036;
+	padding:10px;
+	margin-left:20px;
+	margin-top:20px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	color:#CF0;
+
+}
+#form1
+{
+	padding: 10px;
+	width: 500px;
+	border-style: solid;
+	border-color: #063;
+	border-radius: 15px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	background-color: #CFF;
+	margin:20px;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+	function validateForm(){
+		var name = document.getElementById("name").value;
+		var age = document.getElementById("age").value;
+		if(name == "" || name == null){ // checking for null or empty string
+			resultsMsg("We need your name please");
+		}else{
+			if(age == "" || age == null || isNaN(age)){
+				resultsMsg("Please enter a number for your age");
+			}else{
+				if(!getSkill()){
+					resultsMsg("Please select a skill");
+				}else{
+					moreJob("Great choice " + name + "! At " + age + " I'm positive it will be easy to be a " + getSkill() + "!");
+				}// end else
+			}// end else
+		}// end else
+	}// end function
+			
+	/*function getSkill(){
+		var isChecked = false; // assume no button is checked
+		var theSelection;
+		var skills = document.getElementsByName('skillset'); // returns an array
+		for(var i = 0; i < skills.length; i++){
+			if(skills[i].checked){ // checks for attribute being true
+				isChecked = true;
+				theSelection = skills[i].value;
+				break; // leave the loop since only one can be checked
+			}// end if
+		}// end for
+		if(isChecked){
+			return theSelection;
+		}else{
+			return false;
+		}// end else
+	}// end function
+	
+	function resultsMsg(s){
+		var resultsBox = document.getElementById("results");
+		// reset to blank by overwriting
+		resultsBox.innerHTML = s;
+	}// end function
+	
+	function moreJob(m){
+		var resultsBox = document.getElementById("more");
+		// reset to blank by overwriting
+		resultsBox.innerHTML = m;
+	}// end function*/
+</script>
+</head>
+
+<body>
+
+<p id="p1">First Paragraph</p>
+<p>Second Paragraph</p>
+<form name="form1" id="form1" action="" method="post">
+
+	<!----<label>First Name:
+		<input type="text" id="name" name="name">
+	</label>
+	<br>
+	<label>Your Age:
+		<input type="text" id="age" name="age">
+	</label>
+	<br>---->
+	
+	<!----<input type="radio" name="skillset" value="designer">Designer<br>
+	<input type="radio" name="skillset" value="devolper">Devolper<br>
+	<input type="radio" name="skillset" value="programmer">Programmer<br>
+	<input type="radio" name="skillset" value="artist">Artist<br>---->
+	
+	<input type="textbox" id="box1">
+	<input type="button" value="Relay a Message" onclick="validateForm();">
+</form>
+<div id="results"></div>
+<div id="more"></div>
+</body>
+</html>
